@@ -1279,12 +1279,18 @@
   // Report content height to parent (used when embedded in an iframe, e.g. Squarespace)
   (function () {
     if (window.parent === window) return;
-    const send = () => window.parent.postMessage(
-      { type: 'epk-height', h: document.documentElement.scrollHeight },
-      '*'
-    );
-    new ResizeObserver(send).observe(document.documentElement);
+    let last = 0;
+    const send = () => {
+      const h = Math.ceil(document.body.getBoundingClientRect().bottom);
+      if (Math.abs(h - last) < 1) return;
+      last = h;
+      window.parent.postMessage({ type: 'epk-height', h }, '*');
+    };
+    new ResizeObserver(send).observe(document.body);
     window.addEventListener('load', send);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(send);
+    // Resend a few times to catch late layout shifts (web fonts, async images).
+    [100, 400, 1200, 3000].forEach(t => setTimeout(send, t));
   })();
 </script>
 </body>
