@@ -1290,8 +1290,15 @@
     };
     new ResizeObserver(send).observe(document.body);
     window.addEventListener('load', send);
+    window.addEventListener('resize', send);
+    window.addEventListener('orientationchange', send);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(send);
-    // Resend a few times to catch late layout shifts (web fonts, async images).
+    // Resize after each image finishes loading.
+    document.querySelectorAll('img').forEach(img => {
+      if (!img.complete) img.addEventListener('load', send, { once: true });
+      img.addEventListener('error', send, { once: true });
+    });
+    // Resend a few times to catch late layout shifts.
     [100, 400, 1200, 3000].forEach(t => setTimeout(send, t));
   })();
 </script>
