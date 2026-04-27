@@ -1263,5 +1263,18 @@
     resetTimer();
   })();
 </script>
+
+<script>
+  // Report content height to parent (used when embedded in an iframe, e.g. Squarespace)
+  (function () {
+    if (window.parent === window) return;
+    const send = () => window.parent.postMessage(
+      { type: 'epk-height', h: document.documentElement.scrollHeight },
+      '*'
+    );
+    new ResizeObserver(send).observe(document.documentElement);
+    window.addEventListener('load', send);
+  })();
+</script>
 </body>
 </html>
