@@ -53,6 +53,10 @@
       overflow: hidden;
     }
 
+    /* When embedded in an iframe, vh resolves against the iframe's height,
+       which creates a feedback loop with the auto-resize script. */
+    html.embedded .hero { min-height: 480px; }
+
     /* painting-inspired background texture */
     .hero::before {
       content: '';
@@ -1268,6 +1272,7 @@
   // Report content height to parent (used when embedded in an iframe, e.g. Squarespace)
   (function () {
     if (window.parent === window) return;
+    document.documentElement.classList.add('embedded');
     const send = () => window.parent.postMessage(
       { type: 'epk-height', h: document.documentElement.scrollHeight },
       '*'
