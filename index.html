@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jacobo Vega-Albela — Electronic Press Kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Pulled directly from the Un-Belonging album painting */
+      --navy:    #091528;        /* deepest background */
+      --cobalt:  #1a3a8a;        /* dominant blue */
+      --blue:    #2a5cc8;        /* mid blue */
+      --blue-lt: #5b8de8;        /* bright blue highlight */
+      --orange:  #e8650a;        /* warm orange from painting */
+      --orange-lt: #f5882a;
+      --lime:    #8db820;        /* lime green dots in painting */
+      --cream:   #f5f3ee;
+      --warm:    #edeae3;
+      --ink:     #0e0d0b;
+      --muted:   #6b6560;
+      --rule:    #d8d3cb;
+      --serif:   'Cormorant Garamond', Georgia, serif;
+      --sans:    'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HERO ────────────────────────────────────────── */
+    .hero {
+      background: var(--navy);
+      color: var(--cream);
+      padding: 80px 56px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: end;
+      min-height: 58vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* painting-inspired background texture */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 110%, rgba(26,58,138,0.55) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 10% -10%, rgba(232,101,10,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse 25% 30% at 95% 5%, rgba(141,184,32,0.12) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero > * { position: relative; z-index: 1; }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 20px;
+      padding-bottom: 72px;
+    }
+
+    .hero-eyebrow {
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange-lt);
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(52px, 6.5vw, 90px);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--blue-lt);
+    }
+
+    .hero-role {
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(245,243,238,0.45);
+    }
+
+    /* Album art panel */
+    .hero-right {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .album-art-wrap {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      /* bottom-flush with hero */
+      margin-bottom: 0;
+    }
+
+    .album-art-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* fallback gradient if no image */
+    .album-art-wrap .art-fallback {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg,
+        #0e2060 0%,
+        #1a4caa 25%,
+        #2a70cc 40%,
+        #c04020 60%,
+        #e87030 78%,
+        #6a9010 95%
+      );
+    }
+
+    .album-art-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 16px 20px 20px;
+      background: linear-gradient(to top, rgba(9,21,40,0.9) 0%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .album-art-label .art-eyebrow {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange-lt);
+    }
+
+    .album-art-label .art-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.15;
+    }
+
+    .album-art-label .art-sub {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(245,243,238,0.5);
+    }
+
+    /* ── CONTACT STRIP ───────────────────────────────── */
+    .contact-strip {
+      background: var(--cobalt);
+      color: rgba(245,243,238,0.9);
+      padding: 15px 56px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+    }
+
+    .contact-strip a {
+      color: rgba(245,243,238,0.9);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(245,243,238,0.25);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .contact-strip a:hover { color: #fff; border-color: rgba(245,243,238,0.7); }
+    .contact-strip .sep { opacity: 0.3; }
+
+    /* ── MAIN LAYOUT ─────────────────────────────────── */
+    .wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 56px;
+    }
+
+    /* ── SECTION ─────────────────────────────────────── */
+    section { padding: 72px 0; border-top: 1px solid var(--rule); }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      margin-bottom: 44px;
+    }
+
+    .section-tag {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--orange);
+      white-space: nowrap;
+    }
+
+    .section-rule { flex: 1; height: 1px; background: var(--rule); }
+
+    /* ── BIOGRAPHY ───────────────────────────────────── */
+    .bio-text p {
+      font-size: 15.5px;
+      line-height: 1.82;
+      color: #252018;
+      margin-bottom: 22px;
+    }
+
+    .bio-text p:last-child { margin-bottom: 0; }
+
+    /* Replacing the awkward sidebar cards with an inline highlights strip */
+    .bio-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .bio-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--navy);
+      color: rgba(245,243,238,0.85);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      border-radius: 2px;
+    }
+
+    .bio-tag .dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--orange-lt);
+      flex-shrink: 0;
+    }
+
+    .bio-tag.blue .dot { background: var(--blue-lt); }
+    .bio-tag.lime .dot { background: var(--lime); }
+
+    /* ── ARTIST STATEMENT ────────────────────────────── */
+    .statement-block { max-width: 760px; }
+
+    .statement-block p {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.68;
+      color: #1c1914;
+      margin-bottom: 28px;
+    }
+
+    .statement-block p:first-child::first-letter {
+      font-size: 72px;
+      line-height: 0.78;
+      float: left;
+      margin: 8px 14px 0 0;
+      color: var(--cobalt);
+      font-style: italic;
+    }
+
+    /* ── ALBUM ───────────────────────────────────────── */
+    .album-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .album-name {
+      font-family: var(--serif);
+      font-size: 38px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    .album-meta {
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 6px;
+      margin-bottom: 28px;
+    }
+
+    .album-description p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #252018;
+      margin-bottom: 18px;
+    }
+
+    .listen-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .listen-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--cobalt);
+      color: var(--cobalt);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .listen-btn:hover { background: var(--cobalt); color: #fff; }
+
+    .album-right { display: flex; flex-direction: column; gap: 24px; }
+
+    .track-list { display: flex; flex-direction: column; gap: 0; }
+
+    .track-item {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--rule);
+      font-size: 14px;
+    }
+
+    .track-item:first-child { border-top: 1px solid var(--rule); }
+
+    .track-num {
+      font-family: var(--serif);
+      font-size: 12px;
+      color: var(--orange);
+      min-width: 20px;
+    }
+
+    .track-name {
+      font-family: var(--serif);
+      font-size: 15.5px;
+      font-style: italic;
+      flex: 1;
+    }
+
+    .track-type {
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .personnel-block {
+      background: var(--navy);
+      color: var(--cream);
+      padding: 26px 28px;
+    }
+
+    .personnel-label {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange-lt);
+      margin-bottom: 14px;
+    }
+
+    .personnel-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .personnel-list li {
+      font-family: var(--serif);
+      font-size: 14.5px;
+      line-height: 1.4;
+      color: rgba(245,243,238,0.82);
+    }
+
+    .personnel-list li strong { color: var(--cream); font-weight: 600; }
+
+    /* ── PRESS ───────────────────────────────────────── */
+    .press-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .press-col-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .press-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+    .press-list li {
+      font-family: var(--serif);
+      font-size: 16px;
+      line-height: 1.4;
+      padding-left: 18px;
+      position: relative;
+      color: #252018;
+    }
+
+    .press-list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 10px;
+      width: 7px; height: 1px;
+      background: var(--cobalt);
+    }
+
+    /* ── HIGHLIGHTS ──────────────────────────────────── */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .highlight-card {
+      background: var(--cream);
+      padding: 34px 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .highlight-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+    }
+
+    .highlight-card.c-blue::after   { background: var(--cobalt); }
+    .highlight-card.c-orange::after { background: var(--orange); }
+    .highlight-card.c-lime::after   { background: var(--lime); }
+
+    .highlight-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .highlight-body {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .highlight-eyebrow {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .c-blue .highlight-eyebrow   { color: var(--cobalt); }
+    .c-orange .highlight-eyebrow { color: var(--orange); }
+    .c-lime .highlight-eyebrow   { color: var(--lime); }
+
+    /* ── EDUCATION ───────────────────────────────────── */
+    .edu-timeline { display: flex; flex-direction: column; }
+
+    .edu-item {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 36px;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: start;
+    }
+
+    .edu-item:first-child { border-top: 1px solid var(--rule); }
+
+    .edu-year {
+      font-family: var(--serif);
+      font-size: 14px;
+      font-style: italic;
+      color: var(--orange);
+      padding-top: 3px;
+    }
+
+    .edu-body-title {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 400;
+      margin-bottom: 3px;
+    }
+
+    .edu-body-subtitle {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--cobalt);
+      margin-bottom: 12px;
+    }
+
+    .edu-body-desc {
+      font-size: 14.5px;
+      line-height: 1.72;
+      color: #3a342c;
+    }
+
+    /* ── AWARDS ──────────────────────────────────────── */
+    .award-item {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .award-item:first-child { border-top: 1px solid var(--rule); }
+
+    .award-year {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-style: italic;
+      color: var(--orange);
+      min-width: 40px;
+    }
+
+    .award-name { font-family: var(--serif); font-size: 17px; flex: 1; }
+    .award-inst { font-size: 12px; color: var(--muted); }
+
+    /* ── PHOTOS CTA ──────────────────────────────────── */
+    .photos-cta {
+      background: var(--navy);
+      padding: 44px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .photos-cta-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange-lt);
+      margin-bottom: 8px;
+    }
+
+    .photos-cta-heading {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 300;
+      color: var(--cream);
+    }
+
+    .photos-cta-sub {
+      font-size: 13px;
+      color: rgba(245,243,238,0.5);
+      margin-top: 5px;
+    }
+
+    .photos-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--cobalt);
+      color: var(--cream);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .photos-cta-btn:hover { background: var(--blue); }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      color: rgba(245,243,238,0.45);
+      padding: 52px 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      border-top: 2px solid var(--cobalt);
+    }
+
+    .footer-name {
+      font-family: var(--serif);
+      font-size: 30px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+
+    .footer-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-lt);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
+    .footer-links a {
+      color: rgba(245,243,238,0.55);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--orange-lt); }
+
+    /* ── CAROUSEL ────────────────────────────────────── */
+    .carousel-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .carousel-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: var(--navy);
+      border-radius: 2px;
+    }
+
+    .carousel-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.65s ease;
+      pointer-events: none;
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(9,21,40,0.7);
+      border: 1px solid rgba(91,141,232,0.35);
+      color: var(--cream);
+      font-size: 18px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+      z-index: 10;
+      line-height: 1;
+    }
+
+    .carousel-btn:hover {
+      background: var(--cobalt);
+      border-color: var(--cobalt);
+    }
+
+    .carousel-prev { left: -22px; }
+    .carousel-next { right: -22px; }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .carousel-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--rule);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .carousel-dot.active {
+      background: var(--cobalt);
+      transform: scale(1.25);
+    }
+
+    .carousel-dot:hover { background: var(--blue-lt); }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; padding: 52px 28px 0; min-height: auto; }
+      .album-art-wrap { height: 280px; }
+      .hero-left { padding-bottom: 36px; }
+      .wrapper { padding: 0 28px; }
+      .contact-strip { padding: 14px 28px; }
+      .bio-grid, .album-grid, .press-grid { grid-template-columns: 1fr; gap: 36px; }
+      .highlights-grid { grid-template-columns: 1fr; }
+      footer { grid-template-columns: 1fr; padding: 40px 28px; }
+      .footer-links { align-items: flex-start; }
+      .photos-cta { flex-direction: column; align-items: flex-start; padding: 32px 28px; }
+    }
+
+    @media print {
+      .hero { min-height: auto; }
+      a { color: inherit !important; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════ HERO -->
+<header class="hero">
+  <div class="hero-left">
+    <h1 class="hero-name">Jacobo<br><em>Vega-Albela</em></h1>
+    <div class="hero-role">Jazz Drummer &nbsp;·&nbsp; Composer &nbsp;·&nbsp; Bandleader</div>
+  </div>
+
+  <div class="hero-right">
+    <div class="album-art-wrap">
+      <!--
+        ALBUM ART: Drop your Un-Belonging painting image into the same folder
+        as this file and update the src below, e.g. src="album-art.jpg"
+      -->
+      <img src="https://drive.google.com/thumbnail?id=1bIKBbvRpRmXNPzKNzLOE1vUe760v7KLo&sz=w1200" alt="Un-Belonging — Album Art" />
+      <div class="art-fallback"></div>
+      <div class="album-art-label">
+        <span class="art-eyebrow">Debut Album</span>
+        <span class="art-title">"Un-Belonging"</span>
+        <span class="art-sub">577 Records · May 2025</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════ CONTACT STRIP -->
+<div class="contact-strip">
+  <a href="mailto:jacobovamusic@gmail.com">jacobovamusic@gmail.com</a>
+  <span class="sep">|</span>
+  <a href="tel:+15858024247">(585) 802-4247</a>
+  <span class="sep">|</span>
+  <a href="https://www.jva-music.com" target="_blank">jva-music.com</a>
+  <span class="sep">|</span>
+  <a href="https://www.instagram.com/jacobo.vegaalbela/" target="_blank">@jacobo.vegaalbela</a>
+  <span class="sep">|</span>
+  Rochester, New York
+</div>
+
+<div class="wrapper">
+
+  <!-- ════════════════════════════════════════ BIOGRAPHY -->
+  <section>
+    <div class="section-header">
+      <span class="section-tag">Biography</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="bio-text">
+      <p>
+        Based in Rochester, New York, Jacobo Vega-Albela is a jazz drummer and composer
+        dedicated to bringing life to music — whether by composing new works, programming
+        interesting pieces from the standard repertoire, or seeking out collaborators to
+        create fresh and interesting musical chemistry.
+      </p>
+      <p>
+        In 2025, he released his debut album <em>"Un-Belonging"</em> with 577 Records.
+        The album received press in <em>Donos Kulturalny</em>, Bob Osborne's <em>Different
+        Noises</em>, the <em>Las Cruces Bulletin</em>, and <em>Rochester City Magazine</em>,
+        and has been aired on 91.7 FM WMSE, 91.1 FM WFMU, 89.1 FM KURU, and 92.5 FM KOWS-LP.
+        A subsequent release tour expanded his audience to venues in New York City,
+        Connecticut, and New Jersey.
+      </p>
+      <p>
+        A multi-disciplinary background has earned Jacobo degrees in Classical Percussion
+        (B.M., New Mexico State University) and Jazz Studies and Contemporary Media
+        (M.M., Eastman School of Music). He was a 2023 participant in Betty Carter's Jazz Ahead,
+        performing his original composition <em>"Birthday Week"</em> at the Kennedy Center's
+        Millennium Stage and alongside Melissa Aldana at the Burlington Discover Jazz Festival.
+      </p>
+      <p>
+        He has performed at the Rochester International Jazz Festival, the Burlington Vermont
+        Discover Jazz Festival, the Geneva Jazz Festival, and the Las Cruces Juneteenth
+        Jazz Festival. He performs regularly throughout Upstate New York at Pausa Art House,
+        The Trestle, and The Little Theatre Cafe.
+      </p>
+    </div>
+
+    <!-- Clean inline tags replace the old segmented sidebar cards -->
+    <div class="bio-highlights">
+      <span class="bio-tag c-blue"><span class="dot"></span>577 Records</span>
+      <span class="bio-tag c-blue"><span class="dot"></span>Eastman School of Music</span>
+      <span class="bio-tag c-blue"><span class="dot"></span>Jazz Ahead Alumnus</span>
+      <span class="bio-tag"><span class="dot"></span>Rochester International Jazz Festival</span>
+      <span class="bio-tag"><span class="dot"></span>Burlington Discover Jazz Festival</span>
+      <span class="bio-tag"><span class="dot"></span>Geneva Jazz Festival</span>
+      <span class="bio-tag"><span class="dot"></span>Las Cruces Juneteenth Jazz Festival</span>
+      <span class="bio-tag lime"><span class="dot"></span>Pausa Art House</span>
+      <span class="bio-tag lime"><span class="dot"></span>The Trestle</span>
+      <span class="bio-tag lime"><span class="dot"></span>The Little Theatre Cafe</span>
+      <span class="bio-tag lime"><span class="dot"></span>NYC · CT · NJ (touring)</span>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ ARTIST STATEMENT -->
+  <section>
+    <div class="section-header">
+      <span class="section-tag">Artist Statement</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="statement-block">
+      <p>
+        My work as a composer is to give shape to deeply felt internal states, and at times
+        to bring to light the otherwise opaque terrain of my unconscious. I believe I am a
+        product of all the small moments I've lived, so I try to live fully and feel with
+        depth and complexity, in the hope that I might write earnestly and imbue the work
+        with some part of my humanity. I find myself drawn to the natural world, the dynamics
+        of human connection, and our relationships to time, impermanence, and perception.
+        These curiosities work their way into my material and serve as an evergreen source
+        of inspiration.
+      </p>
+      <p>
+        As a writer for improvising bands, I aim to create compelling vehicles for
+        improvisation — musical environments that put the groups I work with into a headspace
+        conducive to open co-creation. The brilliance of improvised music often lives in the
+        collective intelligence of the band, and I welcome the group reimagining and
+        reinventing the material I precompose.
+      </p>
+      <p>
+        As an improviser, I strive to drop my masks and inhabit the moment, making music in
+        real time without judgment. I am drawn to opposites and contrasts: density and
+        sparseness, motion and stasis, counterpoint and the single line. I play with these
+        polarities to shape the music, and I work with motives to develop a narrative
+        through-line. The tremendous spirit my peers bring to their tireless improvising
+        inspires me to dig ever deeper, to meet them fully in the moment, and to support
+        and challenge them as they do the same.
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ ALBUM -->
+  <section>
+    <div class="section-header">
+      <span class="section-tag">Discography</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="album-grid">
+      <div class="album-left">
+        <div class="album-name">"Un-Belonging"</div>
+        <div class="album-meta">577 Records &nbsp;·&nbsp; May 2025 &nbsp;·&nbsp; Debut Album</div>
+        <div class="album-description">
+          <p>
+            Half of the tracks are trio selections. A suite of <em>"Moonbeams"</em> and
+            <em>"To Hope"</em> prominently features pianist Leon Hsu and bassist Zach Walgren,
+            with <em>"Moonbeams"</em> including a short drum solo. <em>"390S"</em> showcases
+            Vega-Albela's writing for trio, and a dark re-imagining of
+            <em>"I Fall In Love Too Easily"</em> gives the three room to stretch on a classic form.
+          </p>
+          <p>
+            The playful but cerebral <em>"Plonqs"</em> introduces Jordan Lerner's alto saxophone,
+            while an inspired tenor solo from Adam Aronesty leads the group into a solo from
+            Vega-Albela over a vamp. Tender and introspective, <em>"Carousel"</em> gives Lerner
+            the opportunity to shine on tenor.
+          </p>
+          <p>
+            <em>"High Priest"</em> is all about group interplay — Aronesty and Lerner trade on
+            two tenors before the rhythm section pushes everyone to new heights.
+            <em>"Birthday Week"</em> is a dynamic contrapuntal closer that builds relentlessly
+            to the end.
+          </p>
+          <p>
+            Recorded by Fred Betschen, mixed by Sam Caldwell, and mastered by Jeremy Loucas,
+            the album has a clear and classic sound that beautifully conveys the
+            composer's intent.
+          </p>
+        </div>
+        <div class="listen-links">
+          <a class="listen-btn" href="https://on.soundcloud.com/GL2vrR844EhGUPpH7" target="_blank">
+            ▶ Listen on SoundCloud
+          </a>
+          <a class="listen-btn" href="https://youtube.com/playlist?list=PLr4sdvgtCCMcfSZHuTscc1YX61tsUFaJt" target="_blank">
+            ▶ Watch on YouTube
+          </a>
+        </div>
+      </div>
+
+      <div class="album-right">
+        <div class="track-list">
+          <div class="track-item"><span class="track-num">01</span><span class="track-name">Moonbeams</span><span class="track-type">Trio</span></div>
+          <div class="track-item"><span class="track-num">02</span><span class="track-name">To Hope</span><span class="track-type">Trio</span></div>
+          <div class="track-item"><span class="track-num">03</span><span class="track-name">Plonqs</span><span class="track-type">Quintet</span></div>
+          <div class="track-item"><span class="track-num">04</span><span class="track-name">390S</span><span class="track-type">Trio</span></div>
+          <div class="track-item"><span class="track-num">05</span><span class="track-name">I Fall In Love Too Easily</span><span class="track-type">Trio</span></div>
+          <div class="track-item"><span class="track-num">06</span><span class="track-name">Carousel</span><span class="track-type">Quartet</span></div>
+          <div class="track-item"><span class="track-num">07</span><span class="track-name">High Priest</span><span class="track-type">Quintet</span></div>
+          <div class="track-item"><span class="track-num">08</span><span class="track-name">Birthday Week</span><span class="track-type">Quintet</span></div>
+        </div>
+
+        <div class="personnel-block">
+          <div class="personnel-label">Personnel</div>
+          <ul class="personnel-list">
+            <li><strong>Jacobo Vega-Albela</strong> — drums, composition &amp; arrangement</li>
+            <li><strong>Leon Hsu</strong> — piano</li>
+            <li><strong>Zach Walgren</strong> — bass</li>
+            <li><strong>Jordan Lerner</strong> — alto &amp; tenor saxophones</li>
+            <li><strong>Adam Aronesty</strong> — tenor saxophone</li>
+          </ul>
+          <div style="height:14px"></div>
+          <div class="personnel-label">Production</div>
+          <ul class="personnel-list">
+            <li><strong>Fred Betschen</strong> — recording engineer</li>
+            <li><strong>Sam Caldwell</strong> — mix engineer</li>
+            <li><strong>Jeremy Loucas</strong> — mastering engineer</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ PRESS & RADIO -->
+  <section>
+    <div class="section-header">
+      <span class="section-tag">Press &amp; Radio</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="press-grid">
+      <div>
+        <div class="press-col-label">Print &amp; Online Coverage</div>
+        <ul class="press-list">
+          <li><em>Donos Kulturalny</em></li>
+          <li>Bob Osborne's <em>Different Noises</em></li>
+          <li><em>Las Cruces Bulletin</em></li>
+          <li><em>Rochester City Magazine</em></li>
+        </ul>
+      </div>
+      <div>
+        <div class="press-col-label">Radio Airplay</div>
+        <ul class="press-list">
+          <li>91.7 FM — WMSE</li>
+          <li>91.1 FM — WFMU</li>
+          <li>89.1 FM — KURU</li>
+          <li>92.5 FM — KOWS-LP</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ HIGHLIGHTS -->
+  <section>
+    <div class="section-header">
+      <span class="section-tag">Career Highlights</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="highlights-grid">
+      <div class="highlight-card c-blue">
+        <div class="highlight-eyebrow">Betty Carter's Jazz Ahead · 2023</div>
+        <div class="highlight-title">Performed at the Kennedy Center</div>
+        <div class="highlight-body">
+          Selected for the Kennedy Center's competitive Jazz Ahead residency, studying
+          under Jason Moran, Clarence Penn, Benny Green, Melissa Aldana, and others.
+          Performed original composition <em>"Birthday Week"</em> at the Millennium Stage,
+          and performed alongside Melissa Aldana at the Burlington Discover Jazz Festival.
+        </div>
+      </div>
+      <div class="highlight-card c-orange">
+        <div class="highlight-eyebrow">577 Records · May 2025</div>
+        <div class="highlight-title">Debut Album: "Un-Belonging"</div>
+        <div class="highlight-body">
+          A career-defining release earning press across four publications and airplay
+          on four radio stations nationally — with a release tour spanning New York City,
+          Connecticut, and New Jersey.
+        </div>
+      </div>
+      <div class="highlight-card c-lime">
+        <div class="highlight-eyebrow">Regional &amp; International</div>
+        <div class="highlight-title">Jazz Festival Circuit</div>
+        <div class="highlight-body">
+          Performed at the Rochester International Jazz Festival, Burlington Vermont
+          Discover Jazz Festival, Geneva Jazz Festival, and Las Cruces Juneteenth
+          Jazz Festival.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ EDUCATION -->
+  <section>
+    <div class="section-header">
+      <span class="section-tag">Education</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="edu-timeline">
+      <div class="edu-item">
+        <div class="edu-year">2023</div>
+        <div class="edu-body">
+          <div class="edu-body-title">Betty Carter's Jazz Ahead</div>
+          <div class="edu-body-subtitle">Kennedy Center for the Performing Arts · Washington, D.C.</div>
+          <div class="edu-body-desc">
+            Competitive two-week mentorship residency shaping the next generation of jazz
+            performers and composers. Studied under Jason Moran, Clarence Penn, Benny Green,
+            Melissa Aldana, Linda May Han Oh, Ingrid Jensen, and Camille Thurman.
+            Performed original composition <em>"Birthday Week"</em> at the Kennedy Center's
+            Millennium Stage, and performed with Melissa Aldana at the Burlington Discover
+            Jazz Festival.
+          </div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2020–2022</div>
+        <div class="edu-body">
+          <div class="edu-body-title">Eastman School of Music</div>
+          <div class="edu-body-subtitle">M.M. — Jazz Studies and Contemporary Media</div>
+          <div class="edu-body-desc">
+            Degree focused on jazz drumset performance. Coursework in jazz composition,
+            including a seminar on the compositional methods of Bob Brookmeyer. Served as
+            teaching assistant and instructor for a functional drumset course for
+            non-drumset majors. Recipient of the Raymond and Maxine Schirmer Prize
+            in Jazz Performance (2022).
+          </div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2015–2019</div>
+        <div class="edu-body">
+          <div class="edu-body-title">New Mexico State University</div>
+          <div class="edu-body-subtitle">B.M. — Classical Percussion Performance</div>
+          <div class="edu-body-desc">
+            Degree focused on classical percussion performance and literature, with deep
+            immersion in the history and theory of common-practice and 20th-century Western
+            art music. Recipient of the William Dempsey Clark Music Endowment Award (2015).
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ AWARDS -->
+  <section>
+    <div class="section-header">
+      <span class="section-tag">Awards &amp; Recognition</span>
+      <div class="section-rule"></div>
+    </div>
+    <div>
+      <div class="award-item">
+        <span class="award-year">2025</span>
+        <span class="award-name">Steve Lyman Coaching Scholarship</span>
+        <span class="award-inst"></span>
+      </div>
+      <div class="award-item">
+        <span class="award-year">2022</span>
+        <span class="award-name">Raymond and Maxine Schirmer Prize in Jazz Performance</span>
+        <span class="award-inst">Eastman School of Music</span>
+      </div>
+      <div class="award-item">
+        <span class="award-year">2015</span>
+        <span class="award-name">William Dempsey Clark Music Endowment Award</span>
+        <span class="award-inst">New Mexico State University</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ PRESS PHOTOS -->
+  <section style="padding-bottom: 72px;">
+    <div class="section-header">
+      <span class="section-tag">Press Photos</span>
+      <div class="section-rule"></div>
+    </div>
+
+    <!-- Carousel -->
+    <div class="carousel-wrap">
+      <div class="carousel-stage" id="carouselStage">
+
+        <!-- Portrait favorites — Google Drive thumbnail URLs -->
+        <div class="carousel-slide active">
+          <img src="https://drive.google.com/thumbnail?id=16SI5IRR7h82tt8W4ocAMcPTBNuhPjdIr&sz=w900" alt="Press Photo" loading="lazy" />
+        </div>
+        <div class="carousel-slide">
+          <img src="https://drive.google.com/thumbnail?id=1B3785khXY1qst1h5R2LlygLn0Y7Mx7jI&sz=w900" alt="Press Photo" loading="lazy" />
+        </div>
+        <div class="carousel-slide">
+          <img src="https://drive.google.com/thumbnail?id=1-YGYO7uJatjke-bWwZmSKXr4XvbzQpio&sz=w900" alt="Press Photo" loading="lazy" />
+        </div>
+        <div class="carousel-slide">
+          <img src="https://drive.google.com/thumbnail?id=12o7tOWKeTNLJGMM5_LhubZVwvWgx3ena&sz=w900" alt="Press Photo" loading="lazy" />
+        </div>
+        <div class="carousel-slide">
+          <img src="https://drive.google.com/thumbnail?id=1ht0DJ0hsnEAM7il5slL3SvV2zXRZG5t8&sz=w900" alt="Press Photo" loading="lazy" />
+        </div>
+        <div class="carousel-slide">
+          <img src="https://drive.google.com/thumbnail?id=1t2FhLyza8zpocEnhvMUPcsVnKJ1dCLot&sz=w900" alt="Press Photo" loading="lazy" />
+        </div>
+        <div class="carousel-slide">
+          <img src="https://drive.google.com/thumbnail?id=1I0x3UGB4CzpkrqySMwBNh3nFneCe3r-g&sz=w900" alt="Press Photo" loading="lazy" />
+        </div>
+        <div class="carousel-slide">
+          <img src="https://drive.google.com/thumbnail?id=1FkMOVokfFgLGWTfc2Dyd77Itolr7GQ7y&sz=w900" alt="Press Photo" loading="lazy" />
+        </div>
+        <div class="carousel-slide">
+          <img src="https://drive.google.com/thumbnail?id=1rStHBxsZ8yPC7550WoKFlhHFiCfUlVnD&sz=w900" alt="Press Photo" loading="lazy" />
+        </div>
+        <div class="carousel-slide">
+          <img src="https://drive.google.com/thumbnail?id=10d_zc2Q7lsla9-HG_kT1b8NWkuA70pM7&sz=w900" alt="Press Photo" loading="lazy" />
+        </div>
+
+      </div><!-- /.carousel-stage -->
+
+      <!-- Controls -->
+      <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Previous photo">&#8592;</button>
+      <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Next photo">&#8594;</button>
+
+      <!-- Dots -->
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div><!-- /.carousel-wrap -->
+
+    <!-- Download CTA below carousel -->
+    <div class="photos-cta" style="margin-top: 28px;">
+      <div class="photos-cta-text">
+        <div class="photos-cta-label">Media Assets</div>
+        <div class="photos-cta-heading">Download Hi-Resolution Files</div>
+        <div class="photos-cta-sub">Portrait and landscape favorites — print-ready resolution.</div>
+      </div>
+      <a class="photos-cta-btn" href="https://drive.google.com/drive/folders/1A-m6Ny-eqMybXyHYLNbCr_3kn5JazFEI" target="_blank">
+        Open in Google Drive →
+      </a>
+    </div>
+  </section>
+
+</div><!-- /.wrapper -->
+
+<!-- ══════════════════════════════════════════ FOOTER -->
+<footer>
+  <div>
+    <div class="footer-name">Jacobo Vega-Albela</div>
+    <div class="footer-label">Jazz Drummer · Composer · Bandleader · Rochester, NY</div>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.jva-music.com" target="_blank">jva-music.com</a>
+    <a href="mailto:jacobovamusic@gmail.com">jacobovamusic@gmail.com</a>
+    <a href="tel:+15858024247">(585) 802-4247</a>
+    <a href="https://www.instagram.com/jacobo.vegaalbela/" target="_blank">@jacobo.vegaalbela</a>
+    <a href="https://on.soundcloud.com/GL2vrR844EhGUPpH7" target="_blank">SoundCloud: Un-Belonging</a>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+    const dotsContainer = document.getElementById('carouselDots');
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
+    let current = 0;
+    let timer;
+
+    // Build dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Photo ' + (i + 1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = Array.from(dotsContainer.querySelectorAll('.carousel-dot'));
+
+    function goTo(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      resetTimer();
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), 4000);
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    // Pause on hover
+    const wrap = document.querySelector('.carousel-wrap');
+    wrap.addEventListener('mouseenter', () => clearInterval(timer));
+    wrap.addEventListener('mouseleave', resetTimer);
+
+    // Swipe support
+    let touchStartX = 0;
+    wrap.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    wrap.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1);
+    });
+
+    resetTimer();
+  })();
+</script>
+</body>
+</html>
