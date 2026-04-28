@@ -162,6 +162,10 @@
       line-height: 1;
     }
 
+    /* Show full labels on desktop, short labels on mobile */
+    .hero-link-btn .label-short { display: none; }
+    .hero-link-btn .label-full { display: inline; }
+
     /* Album art panel */
     .hero-right {
       display: flex;
@@ -821,6 +825,11 @@
 
     /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 860px) {
+      .hero-link-btn .label-full { display: none; }
+      .hero-link-btn .label-short { display: inline; }
+      .hero-link-btn { padding: 11px 16px; letter-spacing: 0.12em; }
+      .hero-links { gap: 8px; }
+
       .hero { grid-template-columns: 1fr; padding: 52px 28px 0; min-height: auto; }
       .album-art-wrap { width: 240px; }
       .hero-right { padding-bottom: 36px; }
@@ -851,13 +860,13 @@
     <div class="hero-role">Jazz Drummer &nbsp;·&nbsp; Composer &nbsp;·&nbsp; Bandleader</div>
     <div class="hero-links">
       <a class="hero-link-btn primary" href="https://on.soundcloud.com/ZC0BOIOtkW2wuYAVIq" target="_blank" rel="noopener">
-        <span class="icon">▶</span> Listen to the Album
+        <span class="icon">▶</span><span class="label-full">Listen to the Album</span><span class="label-short">Listen</span>
       </a>
       <a class="hero-link-btn" href="https://youtube.com/playlist?list=PLr4sdvgtCCMcfSZHuTscc1YX61tsUFaJt" target="_blank" rel="noopener">
-        <span class="icon">▶</span> Watch on YouTube
+        <span class="icon">▶</span><span class="label-full">Watch on YouTube</span><span class="label-short">Watch</span>
       </a>
       <a class="hero-link-btn" href="https://linktr.ee/jvegaalbela" target="_blank" rel="noopener">
-        <span class="icon">↗</span> All Links · Linktree
+        <span class="icon">↗</span><span class="label-full">All Links · Linktree</span><span class="label-short">Links</span>
       </a>
     </div>
   </div>
