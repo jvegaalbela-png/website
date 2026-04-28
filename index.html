@@ -115,6 +115,53 @@
       color: rgba(245,243,238,0.45);
     }
 
+    /* Quick-link CTAs at the top of the hero */
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .hero-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      border: 1px solid rgba(245,243,238,0.35);
+      color: var(--cream);
+      background: transparent;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .hero-link-btn:hover {
+      background: rgba(245,243,238,0.08);
+      border-color: rgba(245,243,238,0.7);
+      transform: translateY(-1px);
+    }
+
+    .hero-link-btn.primary {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--cream);
+    }
+
+    .hero-link-btn.primary:hover {
+      background: var(--orange-lt);
+      border-color: var(--orange-lt);
+    }
+
+    .hero-link-btn .icon {
+      font-size: 12px;
+      line-height: 1;
+    }
+
     /* Album art panel */
     .hero-right {
       display: flex;
@@ -802,6 +849,17 @@
   <div class="hero-left">
     <h1 class="hero-name">Jacobo<br><em>Vega-Albela</em></h1>
     <div class="hero-role">Jazz Drummer &nbsp;·&nbsp; Composer &nbsp;·&nbsp; Bandleader</div>
+    <div class="hero-links">
+      <a class="hero-link-btn primary" href="https://on.soundcloud.com/ZC0BOIOtkW2wuYAVIq" target="_blank" rel="noopener">
+        <span class="icon">▶</span> Listen to the Album
+      </a>
+      <a class="hero-link-btn" href="https://youtube.com/playlist?list=PLr4sdvgtCCMcfSZHuTscc1YX61tsUFaJt" target="_blank" rel="noopener">
+        <span class="icon">▶</span> Watch on YouTube
+      </a>
+      <a class="hero-link-btn" href="https://linktr.ee/jvegaalbela" target="_blank" rel="noopener">
+        <span class="icon">↗</span> All Links · Linktree
+      </a>
+    </div>
   </div>
 
   <div class="hero-right">
@@ -825,6 +883,8 @@
   <a href="https://www.jva-music.com" target="_blank">jva-music.com</a>
   <span class="sep">|</span>
   <a href="https://www.instagram.com/jacobo.vegaalbela/" target="_blank">@jacobo.vegaalbela</a>
+  <span class="sep">|</span>
+  <a href="https://linktr.ee/jvegaalbela" target="_blank">linktr.ee/jvegaalbela</a>
   <span class="sep">|</span>
   Rochester, New York
 </div>
@@ -1218,7 +1278,9 @@
     <a href="mailto:jacobovamusic@gmail.com">jacobovamusic@gmail.com</a>
     <a href="tel:+15858024247">(585) 802-4247</a>
     <a href="https://www.instagram.com/jacobo.vegaalbela/" target="_blank">@jacobo.vegaalbela</a>
+    <a href="https://linktr.ee/jvegaalbela" target="_blank">linktr.ee/jvegaalbela</a>
     <a href="https://on.soundcloud.com/ZC0BOIOtkW2wuYAVIq" target="_blank">SoundCloud: Un-Belonging</a>
+    <a href="https://youtube.com/playlist?list=PLr4sdvgtCCMcfSZHuTscc1YX61tsUFaJt" target="_blank">YouTube: Un-Belonging</a>
   </div>
 </footer>
 
