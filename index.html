@@ -925,6 +925,66 @@
       .edu-year { font-size: 12px; padding-top: 0; }
     }
 
+    /* ── DARK MODE (follows OS preference) ───────────── */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink:   #ece7da;
+        --muted: #908a7e;
+        --rule:  #1d2a48;
+      }
+
+      /* --cream stays light because it's also used as light text on dark
+         panels (footer, personnel, photos-cta). Body and highlight cards
+         get explicit dark backgrounds instead. */
+      body { background: #060d1c; }
+      .highlight-card { background: #0d1830; }
+
+      /* Body-text colors that were hardcoded warm-dark in light mode */
+      .bio-text p,
+      .album-description p,
+      .press-list li,
+      .bandcamp-copy p {
+        color: #d6d2c8;
+      }
+      .statement-block p { color: var(--ink); }
+      .edu-body-desc { color: #c2bcae; }
+
+      /* Cobalt is too dark on a near-black body — bump cobalt-based
+         accents to blue-lt so links, bullets, and labels stay legible */
+      .bio-text a,
+      .press-list a,
+      .album-meta a,
+      .highlight-eyebrow a,
+      .highlight-title a,
+      .bandcamp-eyebrow {
+        color: var(--blue-lt);
+        border-bottom-color: rgba(91,141,232,0.35);
+      }
+      .bio-text a:hover,
+      .press-list a:hover,
+      .album-meta a:hover,
+      .highlight-eyebrow a:hover,
+      .highlight-title a:hover,
+      .bandcamp-eyebrow:hover {
+        color: #fff;
+        border-bottom-color: var(--blue-lt);
+      }
+      .album-name a:hover { color: var(--blue-lt); }
+
+      .statement-block p:first-child::first-letter { color: var(--blue-lt); }
+      .edu-body-subtitle { color: var(--blue-lt); }
+      .press-list li::before { background: var(--blue-lt); }
+
+      .listen-btn {
+        border-color: var(--blue-lt);
+        color: var(--blue-lt);
+      }
+      .listen-btn:hover {
+        background: var(--blue-lt);
+        color: #051022;
+      }
+    }
+
     @media print {
       .hero { min-height: auto; }
       a { color: inherit !important; text-decoration: none; }
