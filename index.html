@@ -309,6 +309,35 @@
       border-color: var(--cobalt);
     }
 
+    /* Inline links elsewhere in body content (press list, discography meta,
+       highlight cards). Underline-only treatment, color shifts on hover. */
+    .press-list a,
+    .album-meta a,
+    .highlight-eyebrow a,
+    .highlight-title a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(26,58,138,0.3);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .press-list a:hover,
+    .album-meta a:hover,
+    .highlight-eyebrow a:hover,
+    .highlight-title a:hover {
+      color: var(--cobalt);
+      border-color: var(--cobalt);
+    }
+
+    /* Large italic album title — color hover only, no underline */
+    .album-name a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .album-name a:hover { color: var(--cobalt); }
+
     /* Replacing the awkward sidebar cards with an inline highlights strip */
     .bio-highlights {
       display: flex;
@@ -1017,8 +1046,8 @@
     </div>
     <div class="album-grid">
       <div class="album-left">
-        <div class="album-name">"Un-Belonging"</div>
-        <div class="album-meta">577 Records &nbsp;·&nbsp; May 2025 &nbsp;·&nbsp; Debut Album</div>
+        <div class="album-name"><a href="https://577records.bandcamp.com/album/un-belonging" target="_blank" rel="noopener">"Un-Belonging"</a></div>
+        <div class="album-meta"><a href="https://www.577records.com/" target="_blank" rel="noopener">577 Records</a> &nbsp;·&nbsp; May 2025 &nbsp;·&nbsp; Debut Album</div>
         <div class="album-description">
           <p>
             Half of the tracks on the album are trio selections. A suite made up of
@@ -1097,10 +1126,11 @@
       <div>
         <div class="press-col-label">Print &amp; Online Coverage</div>
         <ul class="press-list">
-          <li><em>Donos Kulturalny</em></li>
-          <li>Bob Osborne's <em>Different Noises</em></li>
-          <li><em>Las Cruces Bulletin</em></li>
-          <li><em>Rochester City Magazine</em></li>
+          <li><a href="https://donos.home.blog/2025/07/04/co-w-jazzie-piszczy-sezon-3-odcinek-24/" target="_blank" rel="noopener"><em>Donos Kulturalny</em></a></li>
+          <li>Bob Osborne's <a href="https://www.allaboutjazz.com/new-releases-record-store-day-specials-and-ivo-perelman-on-leo-records-ivo-perelman" target="_blank" rel="noopener"><em>Different Noises</em></a></li>
+          <li><a href="https://www.lascrucesbulletin.com/stories/las-cruces-high-school-alum-has-a-record,128983" target="_blank" rel="noopener"><em>Las Cruces Bulletin</em></a></li>
+          <li><a href="https://www.roccitymag.com/music/album-review-un-belonging/" target="_blank" rel="noopener"><em>Rochester City Magazine</em></a></li>
+          <li><a href="https://jazzrochester.com/2025/08/04/new-roc-cds-jacobo-vega-albela-un-belonging/" target="_blank" rel="noopener"><em>Jazz Rochester</em></a></li>
         </ul>
       </div>
       <div>
@@ -1133,10 +1163,10 @@
         </div>
       </div>
       <div class="highlight-card c-orange">
-        <div class="highlight-eyebrow">577 Records · May 2025</div>
-        <div class="highlight-title">Debut Album: "Un-Belonging"</div>
+        <div class="highlight-eyebrow"><a href="https://www.577records.com/" target="_blank" rel="noopener">577 Records</a> · May 2025</div>
+        <div class="highlight-title">Debut Album: <a href="https://577records.bandcamp.com/album/un-belonging" target="_blank" rel="noopener">"Un-Belonging"</a></div>
         <div class="highlight-body">
-          A career-defining release earning press across four publications and airplay
+          A career-defining release earning press across five publications and airplay
           on four radio stations nationally — with a release tour spanning New York City,
           Connecticut, and New Jersey.
         </div>
